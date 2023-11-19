@@ -1,17 +1,19 @@
 import 'package:bluey_app/common/colors.dart';
+import 'package:bluey_app/common/styles.dart';
 import 'package:flutter/material.dart';
 
 class StartButton extends StatelessWidget {
-  const StartButton({super.key, this.padding, required this.label});
+  const StartButton({super.key, this.padding, required this.label, this.onTap});
 
   final EdgeInsets? padding;
   final String label;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Flexible(
       child: GestureDetector(
-        onTap: () {},
+        onTap: onTap,
         child: Padding(
           padding: padding ?? const EdgeInsets.all(0),
           child: Stack(
@@ -29,13 +31,7 @@ class StartButton extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 12),
-                      child: Text(
-                        label,
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontFamily: "Hello-Headline",
-                            fontSize: 28),
-                      ),
+                      child: Text(label, style: BlueyStyles.title()),
                     ),
                   ],
                 ),

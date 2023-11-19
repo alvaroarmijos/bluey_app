@@ -1,6 +1,9 @@
 import 'package:bluey_app/common/colors.dart';
 import 'package:bluey_app/common/drawables.dart';
+import 'package:bluey_app/common/styles.dart';
+import 'package:bluey_app/features/home/page/home_page.dart';
 import 'package:bluey_app/features/onboarding/widgets/start_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -24,13 +27,9 @@ class OnboardingPage extends StatelessWidget {
               Image.asset(
                 BlueyDrawables.getBlueyFamily(),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 16, bottom: 36),
-                child: Text("Meet the characters",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: "Hello-Headline",
-                        fontSize: 28)),
+              Padding(
+                padding: const EdgeInsets.only(top: 16, bottom: 36),
+                child: Text("Meet the characters", style: BlueyStyles.title()),
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
@@ -40,9 +39,14 @@ class OnboardingPage extends StatelessWidget {
                     BlueyDrawables.getBluey(),
                     height: 150,
                   ),
-                  const StartButton(
+                  StartButton(
+                    onTap: () => Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                          builder: (_) => const HomePage(),
+                        )),
                     label: "Start now",
-                    padding: EdgeInsets.only(left: 8, right: 36, top: 36),
+                    padding: const EdgeInsets.only(left: 8, right: 36, top: 36),
                   ),
                 ],
               )
