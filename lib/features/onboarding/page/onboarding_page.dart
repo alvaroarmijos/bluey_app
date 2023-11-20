@@ -46,7 +46,7 @@ class OnboardingPage extends StatelessWidget {
                           builder: (_) => const HomePage(),
                         )),
                     label: "Start now",
-                    padding: const EdgeInsets.only(left: 8, right: 36, top: 36),
+                    padding: const EdgeInsets.only(left: 8, right: 8, top: 36),
                   ),
                 ],
               )
