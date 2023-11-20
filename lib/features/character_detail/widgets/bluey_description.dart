@@ -51,6 +51,9 @@ class BlueyDescription extends StatelessWidget {
                     "Quick Facts",
                     style: BlueyStyles.title(color: BlueyColors.purple),
                   ),
+                  const SizedBox(
+                    height: 8,
+                  ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -67,8 +70,10 @@ class BlueyDescription extends StatelessWidget {
                         ),
                       ),
                       Flexible(
-                        child: Image.network(
-                          descriptionImg,
+                        child: FadeInImage.assetNetwork(
+                          placeholder: "assets/images/bluey_logo.png",
+                          image: descriptionImg,
+                          width: 100,
                           height: 150,
                         ),
                       )

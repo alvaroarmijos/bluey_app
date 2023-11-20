@@ -21,25 +21,31 @@ class BlueyHeader extends StatelessWidget {
       children: [
         Flexible(
           flex: 3,
-          child: Image.network(
-            img,
+          child: FadeInImage.assetNetwork(
+            placeholder: "assets/images/bluey_logo.png",
+            image: img,
+            height: 200,
+            width: 200,
           ),
         ),
         Flexible(
           flex: 2,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                name,
-                style: BlueyStyles.title(),
-              ),
-              Text(
-                quote,
-                style: BlueyStyles.body(color: BlueyColors.purple),
-              )
-            ],
+          child: Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  name,
+                  style: BlueyStyles.title(),
+                ),
+                Text(
+                  quote,
+                  style: BlueyStyles.body(color: BlueyColors.purple),
+                )
+              ],
+            ),
           ),
         )
       ],

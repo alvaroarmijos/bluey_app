@@ -25,7 +25,7 @@ class CharacterDetailLoadingPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Skeleton(height: 300, width: 200),
+                      Skeleton(height: 200, width: 200),
                       SizedBox(width: 16),
                       Column(
                         mainAxisSize: MainAxisSize.min,

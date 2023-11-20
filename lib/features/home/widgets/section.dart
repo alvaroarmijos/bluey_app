@@ -46,8 +46,16 @@ class Section extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
                       child: ClipRRect(
-                          borderRadius: BorderRadius.circular(16),
-                          child: Image.network(sectionModel.items[index].img)),
+                        borderRadius: BorderRadius.circular(16),
+                        child: FadeInImage.assetNetwork(
+                          placeholder: "assets/images/bluey_logo.png",
+                          image: sectionModel.items[index].img,
+                          width: 100,
+                          height: 200,
+                          placeholderFit: BoxFit.fitWidth,
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(
