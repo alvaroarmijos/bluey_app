@@ -62,7 +62,8 @@ class HomePage extends StatelessWidget {
   }
 }
 
-final sectionFamily = SectionModel([
+final sectionFamily = SectionModel(
+  items: [
   SectionItemModel(
     name: "Bluey",
     img: "https://www.bluey.tv/wp-content/uploads/2023/07/Bluey-fixed-2.png",
@@ -83,9 +84,12 @@ final sectionFamily = SectionModel([
     img: "https://www.bluey.tv/wp-content/uploads/2023/09/Chilli-fixed.png",
     id: 4,
   )
-], title: "Bluey's Family");
+  ],
+  title: "Bluey's Family",
+);
 
-final sectionSchoolFriends = SectionModel([
+final sectionSchoolFriends = SectionModel(
+  items: [
   SectionItemModel(
     img:
         "https://www.bluey.tv/wp-content/uploads/2023/09/Winton-fixed-grid.jpg",
@@ -103,4 +107,6 @@ final sectionSchoolFriends = SectionModel([
     img: "https://www.bluey.tv/wp-content/uploads/2023/09/JACK-GRID.jpg",
     id: 4,
   )
-], title: "School Friends");
+  ],
+  title: "School Friends",
+);
