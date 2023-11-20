@@ -1,5 +1,6 @@
 import 'package:bluey_app/common/colors.dart';
 import 'package:bluey_app/features/character_detail/model/character.dart';
+import 'package:bluey_app/features/character_detail/page/character_detail_loading_page.dart';
 import 'package:bluey_app/features/character_detail/widgets/bluey_description.dart';
 import 'package:bluey_app/features/character_detail/widgets/bluey_header.dart';
 import 'package:flutter/material.dart';
@@ -11,24 +12,36 @@ class CharacterDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: BlueyColors.blue,
-      body: ListView(
-        children: [
-          const CustomAppBar(),
-          BlueyHeader(
-            name: character.name,
-            quote: character.quote,
-            img: character.img,
-          ),
-          BlueyDescription(
-            name: character.name,
-            description: character.description,
-            descriptionImg: character.descriptionImg,
-            items: character.items,
-          ),
-        ],
-      ),
+    return FutureBuilder<bool>(
+      future: Future.delayed(const Duration(seconds: 2), () => true),
+      initialData: false,
+      builder: (context, snapshot) {
+        final data = snapshot.data;
+
+        if (data ?? false) {
+          return Scaffold(
+            backgroundColor: BlueyColors.blue,
+            body: ListView(
+              children: [
+                const CustomAppBar(),
+                BlueyHeader(
+                  name: character.name,
+                  quote: character.quote,
+                  img: character.img,
+                ),
+                BlueyDescription(
+                  name: character.name,
+                  description: character.description,
+                  descriptionImg: character.descriptionImg,
+                  items: character.items,
+                ),
+              ],
+            ),
+          );
+        }
+
+        return const CharacterDetailLoadingPage();
+      },
     );
   }
 }

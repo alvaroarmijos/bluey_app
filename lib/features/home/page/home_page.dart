@@ -3,6 +3,7 @@ import 'package:bluey_app/common/drawables.dart';
 import 'package:bluey_app/common/styles.dart';
 import 'package:bluey_app/features/home/model/section_item_model.dart';
 import 'package:bluey_app/features/home/model/section_model.dart';
+import 'package:bluey_app/features/home/page/home_loading_page.dart';
 import 'package:bluey_app/features/home/widgets/section.dart';
 import 'package:flutter/material.dart';
 
@@ -11,40 +12,52 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: BlueyColors.blue,
-      body: SafeArea(
-        child: Center(
-          child: ListView(
-            children: [
-              Image.asset(
-                BlueyDrawables.getLogo(),
-                color: Colors.white,
-                height: 48,
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: Text(
-                    "Meet the characters",
-                    style: BlueyStyles.title(),
-                  ),
+    return FutureBuilder<bool>(
+      future: Future.delayed(const Duration(seconds: 2), () => true),
+      initialData: false,
+      builder: (context, snapshot) {
+        final data = snapshot.data;
+
+        if (data ?? false) {
+          return Scaffold(
+            backgroundColor: BlueyColors.blue,
+            body: SafeArea(
+              child: Center(
+                child: ListView(
+                  children: [
+                    Image.asset(
+                      BlueyDrawables.getLogo(),
+                      color: Colors.white,
+                      height: 48,
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        child: Text(
+                          "Meet the characters",
+                          style: BlueyStyles.title(),
+                        ),
+                      ),
+                    ),
+                    Section(
+                      sectionModel: sectionFamily,
+                    ),
+                    Section(
+                      sectionModel: sectionSchoolFriends,
+                    ),
+                    Section(
+                      sectionModel: sectionFamily,
+                    ),
+                  ],
                 ),
               ),
-              Section(
-                sectionModel: sectionFamily,
-              ),
-              Section(
-                sectionModel: sectionSchoolFriends,
-              ),
-              Section(
-                sectionModel: sectionFamily,
-              ),
-            ],
-          ),
-        ),
-      ),
+            ),
+          );
+        }
+
+        return const HomeLoadingPage();
+      },
     );
   }
 }
