@@ -108,7 +108,7 @@ class DescriptionItem extends StatelessWidget {
           style: BlueyStyles.body(color: BlueyColors.purple),
         ),
         Text(
-          description,
+          description.replaceAll("\\\\n", "\n"),
           style: const TextStyle(color: BlueyColors.purple),
         ),
         const SizedBox(
