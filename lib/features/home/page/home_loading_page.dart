@@ -58,44 +58,35 @@ class SkeletonItems extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: EdgeInsets.only(right: 16),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Skeleton(height: 200, width: 100),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Skeleton(height: 40, width: 100),
-                  ],
-                ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Skeleton(height: 200, width: 100),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Skeleton(height: 40, width: 100),
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.only(right: 16),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Skeleton(height: 200, width: 100),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Skeleton(height: 40, width: 100),
-                  ],
-                ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Skeleton(height: 200, width: 100),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Skeleton(height: 40, width: 100),
+                ],
               ),
-              Padding(
-                padding: EdgeInsets.only(right: 16),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Skeleton(height: 200, width: 100),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Skeleton(height: 40, width: 100),
-                  ],
-                ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Skeleton(height: 200, width: 100),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Skeleton(height: 40, width: 100),
+                ],
               ),
             ],
           ),

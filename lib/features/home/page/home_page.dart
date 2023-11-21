@@ -18,11 +18,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late HomeBloc bloc;
-
   @override
   void initState() {
-    bloc = context.read<HomeBloc>()..add(const SectionsFetchedEvent());
+    context.read<HomeBloc>().add(const SectionsFetchedEvent());
     super.initState();
   }
 
