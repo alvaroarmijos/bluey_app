@@ -5,6 +5,8 @@ import 'package:bluey_app/features/home/model/section_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common/view_state.dart';
+
 part 'home_event.dart';
 part 'home_state.dart';
 
@@ -21,9 +23,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) async {
     try {
       final sections = await firebaseApiClient.fetchSections();
-      emit(state.copyWith(status: HomeStatus.success, sections: sections));
+      emit(state.copyWith(status: ViewStatus.success, sections: sections));
     } catch (_) {
-      emit(state.copyWith(status: HomeStatus.failure));
+      emit(state.copyWith(status: ViewStatus.failure));
     }
   }
 }

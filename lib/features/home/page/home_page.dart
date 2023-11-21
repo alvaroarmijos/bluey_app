@@ -8,6 +8,8 @@ import 'package:bluey_app/features/home/widgets/section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common/view_state.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -29,10 +31,10 @@ class _HomePageState extends State<HomePage> {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         switch (state.status) {
-          case HomeStatus.loading:
-          case HomeStatus.failure:
+          case ViewStatus.loading:
+          case ViewStatus.failure:
             return const HomeLoadingPage();
-          case HomeStatus.success:
+          case ViewStatus.success:
             return HomeSuccess(
               sections: state.sections ?? [],
             );

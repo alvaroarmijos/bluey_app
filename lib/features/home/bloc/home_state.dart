@@ -1,18 +1,16 @@
 part of 'home_bloc.dart';
 
-enum HomeStatus { loading, success, failure }
-
 final class HomeState extends Equatable {
   const HomeState({
-    this.status = HomeStatus.loading,
+    this.status = ViewStatus.loading,
     this.sections,
   });
 
-  final HomeStatus status;
+  final ViewStatus status;
   final List<SectionModel>? sections;
 
   HomeState copyWith({
-    HomeStatus? status,
+    ViewStatus? status,
     List<SectionModel>? sections,
   }) {
     return HomeState(
