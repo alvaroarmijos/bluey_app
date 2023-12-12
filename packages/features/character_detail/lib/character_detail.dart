@@ -1,0 +1,1 @@
+library character_detail;
