@@ -1,10 +1,8 @@
-import 'package:bluey_app/common/colors.dart';
-import 'package:bluey_app/common/drawables.dart';
-import 'package:bluey_app/common/styles.dart';
-import 'package:bluey_app/features/home/page/home_page.dart';
-import 'package:bluey_app/features/onboarding/widgets/start_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ui/ui.dart';
+
+import '../widgets/start_button.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});

@@ -1,6 +1,5 @@
-import 'package:bluey_app/common/colors.dart';
-import 'package:bluey_app/common/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:ui/ui.dart';
 
 class StartButton extends StatelessWidget {
   const StartButton({super.key, this.padding, required this.label, this.onTap});
