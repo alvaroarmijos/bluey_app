@@ -1,14 +1,11 @@
-import 'package:bluey_app/common/colors.dart';
-import 'package:bluey_app/common/drawables.dart';
-import 'package:bluey_app/common/styles.dart';
-import 'package:bluey_app/features/home/bloc/home_bloc.dart';
-import 'package:bluey_app/features/home/model/section_model.dart';
-import 'package:bluey_app/features/home/page/home_loading_page.dart';
-import 'package:bluey_app/features/home/widgets/section.dart';
+import 'package:catalog/catalog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:home/src/widgets/section_view.dart';
+import 'package:ui/ui.dart';
+import 'package:utility/utility.dart';
 
-import '../../../common/view_state.dart';
+import '../bloc/home_bloc.dart';
+import 'home_loading_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,7 +42,7 @@ class _HomePageState extends State<HomePage> {
 class HomeSuccess extends StatelessWidget {
   const HomeSuccess({super.key, required this.sections});
 
-  final List<SectionModel> sections;
+  final List<Section> sections;
 
   @override
   Widget build(BuildContext context) {
@@ -71,8 +68,8 @@ class HomeSuccess extends StatelessWidget {
                 ),
               ),
               for (var i = 0; i < sections.length; i++)
-                Section(
-                  sectionModel: sections[i],
+                SectionView(
+                  section: sections[i],
                 ),
             ],
           ),

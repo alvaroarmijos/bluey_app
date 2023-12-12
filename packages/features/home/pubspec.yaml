@@ -1,6 +1,7 @@
-name: ui
+name: home
 description: A new Flutter package project.
 version: 0.0.1
+publish_to: 'none'
 homepage:
 
 environment:
@@ -10,7 +11,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  shimmer: ^3.0.0
+
+  ##Pacakges
+  ui:
+    path: ../../core/ui/
+  utility:
+    path: ../../core/utility/
+  catalog:
+    path: ../../data/catalog/
 
 dev_dependencies:
   flutter_test:

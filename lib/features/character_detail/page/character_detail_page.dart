@@ -4,10 +4,9 @@ import 'package:bluey_app/features/character_detail/model/character.dart';
 import 'package:bluey_app/features/character_detail/page/character_detail_loading_page.dart';
 import 'package:bluey_app/features/character_detail/widgets/bluey_description.dart';
 import 'package:bluey_app/features/character_detail/widgets/bluey_header.dart';
+import 'package:bluey_app/packages/core/utility/lib/src/view_status/view_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../common/view_state.dart';
 
 class CharacterDetailPage extends StatefulWidget {
   const CharacterDetailPage({super.key, required this.id});

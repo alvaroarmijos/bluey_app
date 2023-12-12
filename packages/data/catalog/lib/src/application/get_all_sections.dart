@@ -1,8 +1,8 @@
 import 'package:catalog/src/domain/section/section.dart';
 import 'package:catalog/src/domain/section/section_repository.dart';
 
-class GetAllSection {
-  GetAllSection(this._sectionRepository);
+class GetAllSections {
+  GetAllSections(this._sectionRepository);
 
   final SectionRepository _sectionRepository;
 

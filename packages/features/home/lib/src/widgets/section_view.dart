@@ -1,14 +1,11 @@
-import 'package:bluey_app/features/character_detail/page/character_detail_page.dart';
-import 'package:bluey_app/features/home/model/section_model.dart';
+import 'package:catalog/catalog.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:ui/ui.dart';
 
-import '../../../common/colors.dart';
-import '../../../common/styles.dart';
+class SectionView extends StatelessWidget {
+  const SectionView({super.key, required this.section});
 
-class Section extends StatelessWidget {
-  const Section({super.key, required this.sectionModel});
-
-  final SectionModel sectionModel;
+  final Section section;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +17,7 @@ class Section extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Text(
-              sectionModel.title,
+              section.title,
               style: BlueyStyles.title(color: BlueyColors.purple),
             ),
           ),
@@ -29,13 +26,13 @@ class Section extends StatelessWidget {
           height: 200,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: sectionModel.items.length,
+            itemCount: section.items.length,
             itemBuilder: (context, index) => GestureDetector(
               onTap: () => Navigator.push(
                 context,
                 CupertinoPageRoute(
                   builder: (_) => CharacterDetailPage(
-                    id: sectionModel.items[index].id,
+                    id: section.items[index].id,
                   ),
                 ),
               ),
@@ -49,7 +46,7 @@ class Section extends StatelessWidget {
                         borderRadius: BorderRadius.circular(16),
                         child: FadeInImage.assetNetwork(
                           placeholder: "assets/images/bluey_logo.png",
-                          image: sectionModel.items[index].img,
+                          image: section.items[index].img,
                           width: 100,
                           height: 200,
                           placeholderFit: BoxFit.fitWidth,
@@ -61,11 +58,11 @@ class Section extends StatelessWidget {
                   const SizedBox(
                     height: 4,
                   ),
-                  if (sectionModel.items[index].name != null)
+                  if (section.items[index].name != null)
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Text(
-                        sectionModel.items[index].name!,
+                        section.items[index].name!,
                         style: BlueyStyles.body(),
                       ),
                     )

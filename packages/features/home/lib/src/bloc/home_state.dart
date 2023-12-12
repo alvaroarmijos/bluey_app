@@ -7,11 +7,11 @@ final class HomeState extends Equatable {
   });
 
   final ViewStatus status;
-  final List<SectionModel>? sections;
+  final List<Section>? sections;
 
   HomeState copyWith({
     ViewStatus? status,
-    List<SectionModel>? sections,
+    List<Section>? sections,
   }) {
     return HomeState(
       status: status ?? this.status,
