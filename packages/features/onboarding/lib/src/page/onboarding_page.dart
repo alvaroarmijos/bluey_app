@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui/ui.dart';
 
@@ -38,11 +37,7 @@ class OnboardingPage extends StatelessWidget {
                     height: 150,
                   ),
                   StartButton(
-                    onTap: () => Navigator.push(
-                        context,
-                        CupertinoPageRoute(
-                          builder: (_) => const HomePage(),
-                        )),
+                    onTap: () => AppNavigator.navigateToHome(context),
                     label: "Start now",
                     padding: const EdgeInsets.only(left: 8, right: 8, top: 36),
                   ),

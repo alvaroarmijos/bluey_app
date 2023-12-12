@@ -28,14 +28,8 @@ class SectionView extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: section.items.length,
             itemBuilder: (context, index) => GestureDetector(
-              onTap: () => Navigator.push(
-                context,
-                CupertinoPageRoute(
-                  builder: (_) => CharacterDetailPage(
-                    id: section.items[index].id,
-                  ),
-                ),
-              ),
+              onTap: () => AppNavigator.navigateToCharacterDetail(
+                  context, section.items[index].id),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

@@ -1,12 +1,16 @@
-import 'package:bluey_app/data/firebase_api/firebase_api_client.dart';
-import 'package:bluey_app/features/character_detail/bloc/character_bloc.dart';
-import 'package:bluey_app/features/home/bloc/home_bloc.dart';
-import 'package:bluey_app/features/onboarding/page/onboarding_page.dart';
+import 'package:character_detail/character_detail.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart' as http;
+import 'package:home/home.dart';
+import 'package:onboarding/onboarding.dart';
+import 'package:ui/ui.dart';
+import 'package:utility/utility.dart';
 
-void main() {
+import 'app/di/injection_container.dart' as di;
+
+final navigatorKey = GlobalKey<NavigatorState>();
+
+void main() async {
+  await di.configureDependencies();
   runApp(const MainApp());
 }
 
@@ -15,21 +19,68 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (_) => HomeBloc(FirebaseApiClient(httpClient: http.Client())),
-        ),
-        BlocProvider(
-          create: (_) => CharacterBloc(
-            FirebaseApiClient(httpClient: http.Client()),
-          ),
-        ),
-      ],
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: OnboardingPage(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Navigator(
+        key: navigatorKey,
+        onGenerateRoute: _routeFactory,
       ),
     );
+    // return MultiBlocProvider(
+    //   providers: [
+    //     BlocProvider(
+    //       create: (_) => di.sl<HomeBloc>(),
+    //     ),
+    //     BlocProvider(
+    //       create: (_) => di.sl<CharacterBloc>(),
+    //     ),
+    //   ],
+    //   child: MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //     home: Navigator(
+    //       key: navigatorKey,
+    //       onGenerateRoute: _routeFactory,
+    //     ),
+    //   ),
+    // );
+  }
+
+  static Route<dynamic> _routeFactory(RouteSettings settings) {
+    final args = settings.arguments as Map<String, dynamic>?;
+
+    switch (settings.name) {
+      case AppNavigator.ROUTE_MAIN_PAGE:
+        return MaterialPageRoute(
+            settings: settings, builder: (context) => const OnboardingPage());
+      case AppNavigator.ROUTE_HOME:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (context) => BlocProvider(
+            create: (_) => di.sl<HomeBloc>(),
+            child: const HomePage(),
+          ),
+        );
+      case AppNavigator.ROUTE_CHARACTER:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (context) => BlocProvider(
+            create: (_) => di.sl<CharacterBloc>(),
+            child: CharacterDetailPage(
+              id: args![AppNavigator.ARGS_CHARACTER_ID],
+            ),
+          ),
+        );
+      default:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (context) => Scaffold(
+            body: Center(
+              child: Text(
+                'No route defined for ${settings.name} on Main',
+              ),
+            ),
+          ),
+        );
+    }
   }
 }
