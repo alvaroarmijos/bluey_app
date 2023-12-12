@@ -23,6 +23,7 @@ This application utilises [BloC](https://bloclibrary.dev/#/) and the Firebase AP
 - **bluey-ui:** Contains only the implementation of the UI. If you wish to practice state management using BloC or an alternative, you may start from this branch.
 - **bluey-home-bloc:** Contains only the implementation of the UI and the home state management with Bloc.
 - **bluey-character-bloc:** Contains the implementation of the UI, home and character state management with Bloc.
+- **bluey/architecture-modularization-di:** Contains the implementation with DI, modularization and Clean Architecture.
 
 ## Installation
 
