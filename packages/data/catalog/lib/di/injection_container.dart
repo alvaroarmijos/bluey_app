@@ -11,12 +11,12 @@ import '../src/infrastrucuture/api_client.dart';
 
 Future<void> configureDependencies(GetIt sl) async {
   //Use cases
-  sl.registerFactory(() => GetAllSections(sl()));
-  sl.registerFactory(() => GetCharacter(sl()));
+  sl.registerLazySingleton(() => GetAllSections(sl()));
+  sl.registerLazySingleton(() => GetCharacter(sl()));
 
   //Mappers
-  sl.registerFactory(() => const CharacterMapper());
-  sl.registerFactory(() => const SectionMapper());
+  sl.registerLazySingleton(() => const CharacterMapper());
+  sl.registerLazySingleton(() => const SectionMapper());
 
   // Api Client
   sl.registerLazySingleton<FirebaseApiClient>(
@@ -26,13 +26,13 @@ Future<void> configureDependencies(GetIt sl) async {
   );
 
   //Repository
-  sl.registerFactory<CharacterRepository>(
+  sl.registerLazySingleton<CharacterRepository>(
     () => CharacterRepositoryImpl(
       sl(),
       sl(),
     ),
   );
-  sl.registerFactory<SectionRepository>(
+  sl.registerLazySingleton<SectionRepository>(
     () => SectionRepositoryImpl(
       sl(),
       sl(),
