@@ -26,23 +26,6 @@ class MainApp extends StatelessWidget {
         onGenerateRoute: _routeFactory,
       ),
     );
-    // return MultiBlocProvider(
-    //   providers: [
-    //     BlocProvider(
-    //       create: (_) => di.sl<HomeBloc>(),
-    //     ),
-    //     BlocProvider(
-    //       create: (_) => di.sl<CharacterBloc>(),
-    //     ),
-    //   ],
-    //   child: MaterialApp(
-    //     debugShowCheckedModeBanner: false,
-    //     home: Navigator(
-    //       key: navigatorKey,
-    //       onGenerateRoute: _routeFactory,
-    //     ),
-    //   ),
-    // );
   }
 
   static Route<dynamic> _routeFactory(RouteSettings settings) {
