@@ -1,9 +1,8 @@
+import 'package:bluey_app/app/app_navigator.dart';
 import 'package:bluey_app/common/colors.dart';
 import 'package:bluey_app/common/drawables.dart';
 import 'package:bluey_app/common/styles.dart';
-import 'package:bluey_app/features/home/page/home_page.dart';
 import 'package:bluey_app/features/onboarding/widgets/start_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -40,11 +39,7 @@ class OnboardingPage extends StatelessWidget {
                     height: 150,
                   ),
                   StartButton(
-                    onTap: () => Navigator.push(
-                        context,
-                        CupertinoPageRoute(
-                          builder: (_) => const HomePage(),
-                        )),
+                    onTap: () => AppNavigator.navigateToHome(context),
                     label: "Start now",
                     padding: const EdgeInsets.only(left: 8, right: 8, top: 36),
                   ),

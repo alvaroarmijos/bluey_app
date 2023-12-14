@@ -1,4 +1,4 @@
-import 'package:bluey_app/features/character_detail/page/character_detail_page.dart';
+import 'package:bluey_app/app/app_navigator.dart';
 import 'package:bluey_app/features/home/model/section_model.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -31,13 +31,9 @@ class Section extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: sectionModel.items.length,
             itemBuilder: (context, index) => GestureDetector(
-              onTap: () => Navigator.push(
+              onTap: () => AppNavigator.navigateToCharacterDetail(
                 context,
-                CupertinoPageRoute(
-                  builder: (_) => CharacterDetailPage(
-                    id: sectionModel.items[index].id,
-                  ),
-                ),
+                sectionModel.items[index].id,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
